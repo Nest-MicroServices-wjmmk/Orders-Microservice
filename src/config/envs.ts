@@ -4,11 +4,16 @@ import * as joi from 'joi';
 interface EnvVars {
     PORT: number;
     DATABASE_URL: string;
+    
+    PRODUCTS_MICROSERVICE_HOST: string;
+    PRODUCTS_MICROSERVICE_PORT: number;
 }
 
 const envSchema = joi.object({
     PORT: joi.number().required(),
-    DATABASE_URL: joi.string().required()
+    DATABASE_URL: joi.string().required(),
+    PRODUCTS_MICROSERVICE_HOST: joi.string().required(),
+    PRODUCTS_MICROSERVICE_PORT: joi.number().required(),
 })
 .unknown(true);
 
@@ -20,5 +25,7 @@ const envVars: EnvVars = value; //Una forma de validar (value) en la destucturac
 
 export const envs = { 
     port: envVars.PORT,
-    dataBaseUrl: envVars.DATABASE_URL
+    dataBaseUrl: envVars.DATABASE_URL,
+    productsMicroserviceHost: envVars.PRODUCTS_MICROSERVICE_HOST,
+    productsMicroservicePort: envVars.PRODUCTS_MICROSERVICE_PORT
 }
