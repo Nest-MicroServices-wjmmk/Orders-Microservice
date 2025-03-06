@@ -12,10 +12,10 @@ import { envs, PRODUCT_SERVICE } from 'src/config';
       {
         name: PRODUCT_SERVICE,
         transport: Transport.TCP,
-        options: {
+        /* options: {
           host: envs.productsMicroserviceHost,
           port: envs.productsMicroservicePort
-        },
+        }, */
       },
     ]),
   ]
